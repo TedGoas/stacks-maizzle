@@ -1,0 +1,106 @@
+<!DOCTYPE {{ page.doctype or 'html' }}>
+<html {% if page.htmlClass %}class="{{ page.htmlClass }}"{% endif %} lang="{{ page.language or 'en' }}" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="{{ page.charset or 'utf-8' }}">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="x-apple-disable-message-reformatting">
+  {% if page.title %}<title>{{ page.title }}</title>{% endif %}
+  {% if page.googleFonts %}<link href="https://fonts.googleapis.com/css?family={{ page.googleFonts }}" rel="stylesheet" media="screen">{%- endif %}
+  <!--[if mso]>
+  <xml>
+    <o:OfficeDocumentSettings>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+  </xml>
+  <style>
+    table {border-collapse: collapse;}
+    td,th,div,p,a,h1,h2,h3,h4,h5,h6 {font-family: "Segoe UI", sans-serif; mso-line-height-rule: exactly;}
+  </style>
+  <![endif]-->
+  {% if css %}<style>{{ css }}</style>{% endif %}
+  {% block head %}{% endblock %}
+</head>
+<body class="{{ page.emailBg or 'bg-gray-50' }}">
+    <center class="w-full {{ page.emailBg or 'bg-gray-50' }}">
+    <!--[if mso | IE]>
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="{{ page.emailBg or 'bg-gray-50' }}">
+    <tr>
+    <td>
+    <![endif]-->
+    {% if page.preheader %}
+    <div aria-hidden="true" class="hidden">{{ page.preheader }}</div>
+    {% endif %}
+
+    <div class="max-w-680 w-full my-0 mx-auto">
+      <!--[if mso]>
+      <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="680" align="center">
+      <tr>
+      <td>
+      <![endif]-->
+      <table border="0" cellpadding="0" cellspacing="0" role="presentation" class="w-full max-w-680">
+        <!-- Logo : BEGIN -->
+        <tr>
+            <td class="text-left px-24 py-16 sm:px-16">
+                <a href="{{ page.logoURL or 'https://stackoverflow.com/' }}">
+                    <img src="/images/logos/stackoverflow.png" alt="Stack Overflow logo." border="0" height="36" width="146" class="m-0 font-sans text-base leading-snug">
+                </a>
+            </td>
+        </tr>
+        <!-- Logo : END -->
+        {% block template %}{% endblock %}
+        
+        <tr>
+            <td class="p-24 sm:p-16">
+                <table border="0" cellpadding="0" cellspacing="0" role="presentation" class="w-full">
+                    {% if page.reason %}
+                    <tr>
+                        <td prevent-widows class="pb-16 text-sm leading-snug font-sans text-gray-500 text-left">
+                            {{ page.reason }}
+                        </td>
+                    </tr>
+                    {% endif %}
+                    <tr>
+                        <td prevent-widows class="pb-16 text-sm leading-snug font-sans text-left border-0 border-b border-solid border-gray-100">
+                            {% if page.isTransactional === false %}
+                              <a href="#" class="text-gray-500 underline">{{ page.unsubscribeText or 'Unsubscribe' }}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            {% endif %}
+                            <a href="https://stackoverflow.email/subscriptions/manage"
+                            class="text-gray-500 nunderline">Edit email settings</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="https://stackoverflow.com/company/contact" class="text-gray-500 underline">Contact us</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="https://stackoverflow.com/legal/privacy-policy" class="text-gray-500 underline">Privacy</a>
+                        </td>
+                    </tr>
+                    <!-- Subscription Info : BEGIN -->
+                    <!-- Sender Info : BEGIN -->
+                    <tr>
+                        <td class="pt-16 pb-4 text-left">
+                            <img src="/images/logos/stackoverflow-sm-gray.png" alt="Stack Overflow logo." border="0" height="22" width="111" class="m-0 font-sans text-base leading-snug">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td prevent-widows class="pb-8 text-sm leading-snug font-sans text-gray-500 text-left">
+                            <strong>Stack Overflow</strong>, <span class="unstyle-auto-detected-links">110 William Street, 28th Floor, New York, NY 10038</span></td>
+                    </tr>
+                    <!-- Sender Info : END -->
+                    <!-- Heart : BEGIN -->
+                    <tr>
+                        <td>
+                            <table align="left" border="0" cellpadding="0" cellspacing="0" role="presentation" class="bg-white rounded-sm leading-none">
+                                <tr>
+                                    <td>
+                                        <div class="rounded-sm border border-solid border-gray-100 px-4 pt-4 pb-2 text-sm leading-none font-mono text-red-600" title="because we care">&lt;3</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <!-- Heart : END -->
+                </table>
+            </td>
+        </tr>
+      </table>
+    </div>
+  </center>
+</body>
+</html>

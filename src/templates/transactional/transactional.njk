@@ -1,0 +1,48 @@
+---
+plaintext: true
+title: Maizzle test email
+reason: You're receiving this email because we love you. 😘
+isTransactional: false
+unsubscribeText: 
+---
+
+{% block template %} 
+
+<tr>
+  <td class="rounded bg-white p-24 sm:p-16 font-sans text-lg text-gray-800">
+    {% component "src/components/fs-title.njk", {
+      text: 'I am a component headline',
+      classes: ''
+    } %}{% endcomponent %}
+    <p prevent-widows class="mb-24">Choose the right data structures, and the code will write itself. How many Javascript frameworks are there? A SQL statement walks into a bar and sees two tables. It approaches, and asks 'may I join you?' Java, Ruby, C, Javascript, GO, Rust, Cobol, Fortran It's not a bug - it's an undocumented feature.</p>
+    {% component "src/components/fs-subheading.njk", {
+      text: 'I am a component subheading',
+      classes: ''
+    } %}{% endcomponent %}
+    <ul class="p-0 m-0 mb-24 list-disc">
+      <li class="m-0 ml-24 mb-12">DRY up your code.</li>
+      <li class="m-0 ml-24 mb-12">Deleted code is debugged code.</li>
+      <li class="m-0 ml-24 mb-12">UNIX is the answer, but only if you phrase the question very carefully.</li>
+      <li class="m-0 ml-24 mb-12">// You can't fix this, but if you try please update the following.</li>
+    </ul>
+    {% component "src/components/s-btn__primary.njk", {
+      url: 'https://www.stackoverflow.com',
+      text: 'Confirm your account'
+    } %}{% endcomponent %}
+  </td>
+</tr>
+{% component "src/components/spacer.njk", {
+  height: ''
+} %}{% endcomponent %}
+<tr>
+  <td class="rounded bg-white font-sans text-lg text-gray-800">
+  {% component "src/components/two-columns-uneven.njk", {
+    url: 'https://stackoverflow.com/',
+    imageURL: 'https://via.placeholder.com/128',
+    title: 'Mention team members',
+    body: 'Even if you do not have the answer, you might know who does. Help others find answers by mentioning teammates in the comments of question posts.'
+  } %}{% endcomponent %}
+  </td>
+</tr>
+
+{% endblock %}

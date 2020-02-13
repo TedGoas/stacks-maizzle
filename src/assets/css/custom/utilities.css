@@ -1,0 +1,49 @@
+.mso-leading-exactly {
+  mso-line-height-rule: exactly;
+}
+
+/* What it does: A work-around for email clients automatically linking certain text strings. */
+/* iOS */
+a[x-apple-data-detectors],
+.unstyle-auto-detected-links a,
+.aBn {
+  border-bottom: 0 !important;
+  cursor: default !important;
+  color: inherit !important;
+  text-decoration: none !important;
+  font-size: inherit !important;
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+}
+u + #body a,        /* Gmail */
+#MessageViewBody a  /* Samsung Mail */
+{
+  color: inherit;
+  text-decoration: none;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+@responsive {
+  .table-row-group {
+    display: table-row-group !important;
+  }
+  .table-header-group {
+    display: table-header-group !important;
+  }
+  .table-footer-group {
+    display: table-footer-group !important;
+  }
+  .table-column-group {
+    display: table-column-group !important;
+  }
+  .table-column {
+    display: table-column !important;
+  }
+  .table-caption {
+    display: table-caption !important;
+  }
+}
