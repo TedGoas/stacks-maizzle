@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "start": "npm run watch",
     "build": "maizzle build",
     "build staging": "maizzle build staging",
     "build production": "maizzle build production",
@@ -12,5 +13,8 @@
   },
   "browserslist": [
     "> 1%"
-  ]
+  ],
+  "devDependencies": {
+    "@maizzle/cli": "^0.5.0"
+  }
 }
