@@ -1,0 +1,41 @@
+---
+plaintext: true
+title: Maizzle test email
+reason: You're receiving this email because we love you. 😘
+isTransactional: false
+unsubscribeText: 
+---
+
+{% block template %}
+
+<tr>
+  <td class="rounded bg-white p-24 sm:p-16 font-sans text-lg text-gray-800">
+    {% component "src/components/team-identification.njk", {
+      initial: 'T',
+      text: 'SO for Teams Name',
+      initialClass: ''
+    } %}{% endcomponent %}
+    {% component "src/components/fs-title.njk", {
+      text: 'Something happened',
+      classes: ''
+    } %}{% endcomponent %}
+    <p prevent-widows class="text-base mb-24">
+      A starting point for more simple transactional emails with a single message. It can contain <a href="#" class="text-blue-600 no-underline">links</a> or <strong>rich</strong> <em>text</em>.
+    </p>
+    <p prevent-widows class="text-base mb-16">
+      Good for emails like:
+    </p>
+    <ul class="text-base p-0 m-0 mb-24 list-disc">
+      <li class="m-0 ml-24 mb-12">Forgot password</li>
+      <li class="m-0 ml-24 mb-12">You've been removed from a Team</li>
+      <li class="m-0 ml-24 mb-12">Cart abandonment</li>
+      <li class="m-0 ml-24 mb-12">We've updated our privacy policy</li>
+    </ul>
+    {% component "src/components/s-btn__primary.njk", {
+      url: 'https://www.stackoverflow.com',
+      text: 'Medium primary button'
+    } %}{% endcomponent %}
+  </td>
+</tr>
+
+{% endblock %}
